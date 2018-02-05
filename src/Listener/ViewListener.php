@@ -3,6 +3,7 @@ namespace CrudView\Listener;
 
 use Cake\Collection\Collection;
 use Cake\Core\Configure;
+use Cake\Database\Exception;
 use Cake\Event\Event;
 use Cake\Utility\Hash;
 use Cake\Utility\Inflector;
@@ -262,14 +263,20 @@ class ViewListener extends BaseListener
 
         $data = [
             'modelClass' => $controller->modelClass,
-            'modelSchema' => $table->getSchema(),
-            'displayField' => $table->getDisplayField(),
             'singularHumanName' => Inflector::humanize(Inflector::underscore(Inflector::singularize($controller->modelClass))),
             'pluralHumanName' => Inflector::humanize(Inflector::underscore($controller->name)),
             'singularVar' => Inflector::singularize($controller->name),
             'pluralVar' => Inflector::variable($controller->name),
-            'primaryKey' => $table->getPrimaryKey(),
         ];
+
+        try {
+            $data += [
+                'modelSchema' => $table->getSchema(),
+                'displayField' => $table->getDisplayField(),
+                'primaryKey' => $table->getPrimaryKey(),
+            ];
+        } catch (Exception $e) {
+        }
 
         if ($scope === 'entity') {
             $data += [
