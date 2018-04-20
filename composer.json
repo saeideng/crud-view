@@ -34,7 +34,7 @@
         "friendsofcake/bootstrap-ui": "*"
     },
     "require-dev": {
-        "friendsofcake/cakephp-test-utilities": "*",
+        "friendsofcake/cakephp-test-utilities": "^1.0",
         "markstory/asset_compress": "*",
         "phpunit/phpunit": "^5.7|^6.0"
     },
