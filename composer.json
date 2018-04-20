@@ -31,11 +31,11 @@
     "require": {
         "cakephp/cakephp": "dev-log-deprecation",
         "friendsofcake/crud": "*",
-        "friendsofcake/bootstrap-ui": "~1.2"
+        "friendsofcake/bootstrap-ui": "*"
     },
     "require-dev": {
-        "friendsofcake/cakephp-test-utilities": "^1.0",
-        "markstory/asset_compress": "^3.2",
+        "friendsofcake/cakephp-test-utilities": "*",
+        "markstory/asset_compress": "*",
         "phpunit/phpunit": "^5.7|^6.0"
     },
     "autoload": {
